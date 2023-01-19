@@ -6,7 +6,7 @@
 ```
 #### Into container
 ```console
-# apt install graphviz
 # apt-get update
+# apt install graphviz
 # python app.py
 ```

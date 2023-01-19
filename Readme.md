@@ -2,11 +2,10 @@
 
 ## Comand to run container python
 ```console
-# docker run -d -v $PWD:/usr/src/app --name python python:3 tail -f /dev/null
+# docker run -d -v $PWD:/usr/src/app --name python 040500/python-diagrams:v2 tail -f /dev/null
 ```
-#### Into container
+#### Into container 
 ```console
-# apt-get update
-# apt install graphviz
-# python app.py
+# docker exec -ti python /bin/sh
+# python diagram-file.py
 ```

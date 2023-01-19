@@ -1,0 +1,7 @@
+FROM python:alpine3.17
+LABEL maintainer='mvila.huallpa@gmail.com'
+WORKDIR /usr/src/app
+COPY requirements.txt .
+RUN apk add g++ graphviz && \
+    pip install --no-cache-dir -r requirements.txt
+ENTRYPOINT ["tail", "-f", "/dev/null"]

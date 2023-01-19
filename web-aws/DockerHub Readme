@@ -1,0 +1,26 @@
+# Work with Diagrams as Code
+## Files
+```sh
+$ cat app-v2.py
+
+from diagrams import Diagram
+from diagrams.k8s.clusterconfig import HPA
+from diagrams.k8s.compute import Deployment, Pod, ReplicaSet
+from diagrams.k8s.network import Ingress, Service
+
+with Diagram("k8s-service", show=False):
+    net = Ingress("domain.com") >> Service("svc")
+    net >> [Pod("pod1"),
+            Pod("pod2"),
+            Pod("pod3")] << ReplicaSet("rs") << Deployment("dp") << HPA("hpa")
+```
+## Comand to run container python
+```sh
+ # docker run -d -v $PWD:/usr/src/app --name python 040500/python-diagrams:v2 tail -f /dev/null
+```
+## Into container
+```sh
+#### $ docker exec -ti python /bin/sh
+#### $ python diagram-file.py
+```
+It will be saved as k8s_service.png on your working directory.
